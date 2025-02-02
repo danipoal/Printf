@@ -9,17 +9,18 @@ int	count_arguments(char const *s)
 	int	count;
 
 	count = 0;
-	while (s)
+	while ((s = ft_strchr(s, '%')))
 	{
-		s = ft_strchr(s, '%');
-		if (s)
-		{
-			count++;
-			s++;
-	
-		}
+		count++;
+		s++;
 	}	
 	return (count);
+}
+
+int	ft_handle_int(int n)
+{
+		ft_putnbr_fd(n, 1);
+		return (0);
 }
 
 /**
@@ -32,10 +33,19 @@ int	count_arguments(char const *s)
  */
 int	ft_printf(char const *s, ...)
 {
-	//va_list vargs;
+	va_list vargs;
+	int	i;
 
-	//va_start(vargs, i);
-	ft_putnbr_fd(count_arguments(s), 1);
-	//write(1, s, 1);
+	va_start(vargs, s);
+	//ft_putnbr_fd(count_arguments(s), 1);
+
+	i = 0;
+	while (s[i])
+	{
+		if ((ft_strchr("%i", s[i])))
+			ft_handle_int(va_arg(vargs, int));
+		i++;
+	}
+	va_end(vargs);
 	return (0);
 }
