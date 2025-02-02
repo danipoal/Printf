@@ -10,7 +10,7 @@ OBJS = $(addprefix $(FOLDER), $(SRCS:.c=.o))
 # Regla general de compilacion de nueva libreria (No se coloca la lib que se usa como Libft.a, eso solo va en los includes)
 all: $(NAME)
 
-$(NAME):
+$(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 # Regla compilacion .o . Si se toca el .h o Make, se recompila todo

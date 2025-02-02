@@ -14,7 +14,7 @@ all: $(NAME)
 		$(CC) $(FLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
-		$(CC) -o $(NAME) $(OBJ) -L./../ -l:libftprintf.a
+	$(CC) -o $(NAME) $(OBJ) -L./../ -l:libftprintf.a -l:libft.a
 
 clean:
 		rm -f $(OBJ)
