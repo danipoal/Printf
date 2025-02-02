@@ -1,4 +1,4 @@
-#include "../printf.h"
+#include "../ft_printf.h"
 
 /**
  * Counts the number of times we found %
