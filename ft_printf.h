@@ -5,6 +5,7 @@
 # include <stdarg.h>
 
 int	ft_printf(char const *s, ...);
-void	ft_putnbr(int nb);
+void	ft_putnbr_base(long nb, char *base);
+void	ft_putptr(long nb, char *base);
 
 #endif
