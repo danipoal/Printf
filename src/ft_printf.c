@@ -3,7 +3,7 @@
 /**
  * Counts the number of times we found %
  * We need to move the pointer after the find because if not, infinite loop
- */
+ 
 int	count_arguments(char const *s)
 {
 	int	count;
@@ -16,11 +16,18 @@ int	count_arguments(char const *s)
 	}	
 	return (count);
 }
+*/
 
 int	ft_handle_int(int n)
 {
 		ft_putnbr_fd(n, 1);
 		return (0);
+}
+
+int	ft_handle_string(char *s)
+{
+	ft_putstr_fd(s, 1);
+	return (0);
 }
 
 /**
@@ -37,13 +44,21 @@ int	ft_printf(char const *s, ...)
 	int	i;
 
 	va_start(vargs, s);
-	//ft_putnbr_fd(count_arguments(s), 1);
-
 	i = 0;
 	while (s[i])
 	{
-		if ((ft_strchr("%i", s[i])))
-			ft_handle_int(va_arg(vargs, int));
+		if ((ft_strchr("%", s[i])))
+		{
+			if ((ft_strchr("i", s[i + 1])))
+			{
+				ft_handle_int(va_arg(vargs, int));
+				i++;
+			}
+			if (ft_strchr("s", s[i + 1]))
+				ft_handle_string(va_arg(vargs, char *));
+		}
+		else 
+			ft_putchar_fd(s[i], 1);
 		i++;
 	}
 	va_end(vargs);

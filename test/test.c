@@ -2,7 +2,6 @@
 
 int	main()
 {
-	ft_printf("%i\n", 25);
-	printf("Test running\n");
+	ft_printf("El numero es '%i' y palabra '%s'\n", 25, "Hola");
 	return (0);
 }

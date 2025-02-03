@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 12:48:36 by danalvar          #+#    #+#             */
-/*   Updated: 2025/01/31 11:11:23 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/02/03 16:37:15 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	*ft_calloc(size_t nmemb, size_t size)
 
 	if (nmemb == 0 || size == 0)
 		return (malloc(1));
+	if (nmemb > INT_MAX / size)
+		return (NULL);
 	s = (unsigned char *) malloc(nmemb * size);
 	if (!s)
 		return (NULL);
