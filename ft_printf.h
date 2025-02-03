@@ -5,5 +5,6 @@
 # include <stdarg.h>
 
 int	ft_printf(char const *s, ...);
+void	ft_putnbr(int nb);
 
 #endif

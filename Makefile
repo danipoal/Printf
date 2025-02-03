@@ -2,7 +2,7 @@ NAME = libftprintf.a
 
 CC = cc 
 CFLAGS = -Wall -Werror -Wextra
-SRCS = ft_printf.c
+SRCS = ft_printf.c ft_putnbr_base.c
 FOLDER = src/
 LIBFOLDER = libft/
 
