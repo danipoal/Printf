@@ -7,5 +7,6 @@
 int	ft_printf(char const *s, ...);
 void	ft_putnbr_base(long nb, char *base);
 void	ft_putptr(long nb, char *base);
+void	ft_putdec_base(double nb, char *base);
 
 #endif
