@@ -11,7 +11,7 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 %.o: %.c test.h
-		$(CC) $(FLAGS) -c $< -o $@
+		$(CC) $(FLAGS) -g -c $< -o $@
 
 $(NAME): $(OBJ)
 	$(CC) -o $(NAME) $(OBJ) -L./../ -l:libftprintf.a -l:libft/libft.a

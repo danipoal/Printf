@@ -12,13 +12,11 @@ int	ft_printf(char const *s, ...)
 {
 	va_list vargs;
 	int	i;
-	int	f;	// found a coincidence in conversions
 
 	va_start(vargs, s);
 	i = 0;
 	while (s[i])
 	{
-		f = 0;
 		if ((ft_strchr("%", s[i])))
 		{
 
@@ -27,7 +25,7 @@ int	ft_printf(char const *s, ...)
 			else if (ft_strchr("s", s[i + 1])) // STRING
 				ft_putstr_fd(va_arg(vargs, char *), 1);
 			else if (ft_strchr("p", s[i + 1])) // VOID * Puntero
-				ft_putptr((long)va_arg(vargs, void *), "0123456789ABCDEF");
+				ft_putptr((long)va_arg(vargs, void *), "0123456789abcdef");
 			else if (ft_strchr("d", s[i + 1])) // INT b10
 				ft_putdec_base((double)va_arg(vargs, double), "0123456789");
 			else if (ft_strchr("i", s[i + 1])) // INT b10
