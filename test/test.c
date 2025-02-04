@@ -31,42 +31,89 @@ void	printf_unit_test(char *title, char *s, void *arg, size_t size)
 		ft_printf(" Ft:");
 		ft_printf(s, *cp);
 	}
+	else if(size == sizeof(int))
+	{
+		int	*cp = (int *) arg;
+		printf(" Original'%i'", *cp);
+		ft_printf(" Ft:");
+		ft_printf(s, *cp);
+	}
+	else if(size == 16)
+	{
+		int	*cp = (int *) arg;
+		printf(" Original'%x'", *cp);
+		ft_printf(" Ft:");
+		ft_printf(s, *cp);
+	}
+	else if(size == 17)
+	{
+		int	*cp = (int *) arg;
+		printf(" Original'%X'", *cp);
+		ft_printf(" Ft:");
+		ft_printf(s, *cp);
+	}
+	else if (!arg)
+	{
+		printf(" Original'%%'");
+		ft_printf(" Ft:");
+		ft_printf(s);
+	}
 	printf("\n");
 }
 
 
 int	main()
 {
-	char	ptr[] = "aaa";
+	char	ptr[] = "abcdE";
 	double	decimal = 32.32;
+	int	entero = 84;
+	int	hex = 5498;
 
 
+
+	// CHARACTER
 	printf_unit_test("Character:", "'%c'", "a", sizeof(char));
-	printf_unit_test("String:", "'%s'", "Holi", sizeof(char *));
+	ft_printf("Character ft:'%c' ", 'a');
+	printf("Original: '%c'\n\n", 'a');
+
+	// STRING
+	printf_unit_test("String:", "'%s'", ptr, sizeof(char *));
+	ft_printf("String ft:'%s' ", ptr);
+	printf("Original: '%s'\n\n", ptr);
+
+	// POINTER
 	printf_unit_test("Pointer:", "'%p'", ptr, sizeof(void *));
+	ft_printf("Puntero ft: %p ", ptr);
+	printf("Original: %p\n\n", ptr);
+
+	// DECIMAL
 	printf_unit_test("Decimal:", "'%d'", &decimal, sizeof(double));
+	ft_printf("ft: '%d'", 84.23);	
+	printf("Orig w/ %%f '%f' :\n\n", 84.23); // Me dice que haga %f para decimales....
 
-	//ft_printf("'%d' :Decimal\n", 84.23);	
-	//printf("'%d' :Decimal\n", 84.23); // Me dice que haga %f para decimales....
+	//INT entero
+	printf_unit_test("Entero b0:", "'%i'", &entero, sizeof(int));
+	ft_printf("Entero b10 ft:'%i' ", entero);
+	printf("Original: '%i'\n\n", entero);
 
-	ft_printf("Entero b10 ft:'%i' ", 84);
-	printf("Original: '%i'\n", 84);
+	// 
+	//ft_printf("Unsigned Decimal b10 ft:'%d' ", 84);
+	//printf("Original:'%d'\n", 84);
 
-	ft_printf("Unsigned Decimal b10 ft:'%d' ", 84);
-	printf("Original:'%d'\n", 84);
+	// Hexadecimal Minuscula
+	printf_unit_test("Hexadecimal min:", "'%x'", &hex, 16);
+	ft_printf("Hexadecimal min ft: '%x' ", hex);
+	printf("Original: '%x'\n\n", hex);
 
-	ft_printf("Hexadecimal min ft: '%x' ", 88888);
-	printf("Original: '%x'\n", 88888);
+	// Hexadecimal Mayuscuula
+	printf_unit_test("Hexadecimal may:", "'%X'", &hex, 17);
+	ft_printf("Hexadecimal may ft: '%X' ", hex);
+	printf("Original: '%X'\n\n", hex);
 
-	ft_printf("Hexadecimal may ft: '%X' ", 88888);
-	printf("Original: '%X'\n", 88888);
-
+	// Porcentaje %
+	printf_unit_test("Porcentaje:", "'%%'", NULL, 0);
 	ft_printf("Porcentaje ft: '%%' ");
 	printf("Original: '%%'\n");
 
-
-	// Error en los punteros de la funcion
-	printf("Puntero original: %p\n", ptr);
-	ft_printf("Puntero ft: %p", ptr);
 	return (0);
 }

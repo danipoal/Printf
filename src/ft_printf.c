@@ -30,12 +30,14 @@ int	ft_printf(char const *s, ...)
 				ft_putdec_base((double)va_arg(vargs, double), "0123456789");
 			else if (ft_strchr("i", s[i + 1])) // INT b10
 				ft_putnbr_base(va_arg(vargs, int), "0123456789");
+			else if (ft_strchr("u", s[i + 1])) // Decimal Base 10 unsigned
+				ft_putdec_base(va_arg(vargs, unsigned int), "0123456789");
 			else if (ft_strchr("x", s[i + 1])) // Hex min
 				ft_putnbr_base((long) va_arg(vargs, void *), "0123456789abcdef");
 			else if (ft_strchr("X", s[i + 1])) // Hex min
 				ft_putnbr_base(va_arg(vargs, int), "0123456789ABCDEF");
-			//if (ft_strchr("u", s[i + 1])) // Decimal Base 10 unsigned
-
+			else if (ft_strchr("%", s[i + 1]))
+				ft_putchar_fd('%', 1);
 			i++;
 		}
 		else 
