@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 17:31:20 by danalvar          #+#    #+#             */
-/*   Updated: 2025/02/03 22:07:25 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/02/04 21:04:02 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ void	ft_putptr(long nb, char *base)
 
 void	ft_putdec_base(double nb, char *base)
 {
-	long 	int_nbr;
-	int	base_len;
-	int	index;
-	int	precision_limit;
+	int		base_len;
+	int		index;
+	int		precision_limit;
+	long	int_nbr;
 
 	int_nbr = (long) nb;
 	ft_putnbr_base(int_nbr, base);

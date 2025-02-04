@@ -65,7 +65,7 @@ void	printf_unit_test(char *title, char *s, void *arg, size_t size)
 int	main()
 {
 	char	ptr[] = "abcdE";
-	double	decimal = 32.32;
+	//double	decimal = 32.32;
 	int	entero = 84;
 	int	hex = 5498;
 
@@ -87,9 +87,9 @@ int	main()
 	printf("Original: %p\n\n", ptr);
 
 	// DECIMAL
-	printf_unit_test("Decimal:", "'%d'", &decimal, sizeof(double));
-	ft_printf("ft: '%d'", 84.23);	
-	printf("Orig w/ %%f '%f' :\n\n", 84.23); // Me dice que haga %f para decimales....
+	//printf_unit_test("Decimal:", "'%d'", &decimal, sizeof(double));
+	//ft_printf("ft: '%d'", 84.23);	
+	//printf("Orig w/ %%f '%f' :\n\n", 84.23); // Me dice que haga %f para decimales....
 
 	//INT entero
 	printf_unit_test("Entero b0:", "'%i'", &entero, sizeof(int));
@@ -115,5 +115,6 @@ int	main()
 	ft_printf("Porcentaje ft: '%%' ");
 	printf("Original: '%%'\n");
 
+	ft_printf("MultipleFT: '%i' '%s' '%s' ", 233, "String1", "String2");
 	return (0);
 }
