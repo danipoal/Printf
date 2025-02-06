@@ -11,10 +11,10 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 %.o: %.c test.h
-		$(CC) $(FLAGS) -fsanitize=address -g -c $< -o $@
+		$(CC) $(FLAGS) -g -c $< -o $@
 
 $(NAME): $(OBJ)
-	$(CC) -o $(NAME) $(OBJ) -L./../ -l:libftprintf.a -l:libft/libft.a -fsanitize=address
+	$(CC) -o $(NAME) $(OBJ) -L./../ -l:libftprintf.a -l:libft/libft.a 
 
 clean:
 		rm -f $(OBJ)

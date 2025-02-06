@@ -18,9 +18,9 @@ void	printf_unit_test(char *title, char *s, void *arg, size_t size)
 		ft_printf(" Ft:");
 		ft_printf(s, cp);
 	}
-	else if(size == sizeof(void *))
+	else if(size == 99)   // Por alguna razon no entraba en sizeof(void *)
 	{
-		printf(" Original'%p'",(void *) arg);
+		printf("P Original'%p'",(void *) arg);
 		ft_printf(" Ft:");
 		ft_printf(s, arg);
 	}
@@ -82,7 +82,7 @@ int	main()
 	printf("Original: '%s'\n\n", ptr);
 
 	// POINTER
-	printf_unit_test("Pointer:", "'%p'", ptr, sizeof(void *));
+	printf_unit_test("Pointer:", "'%p'", ptr, 99);
 	ft_printf("Puntero ft: %p ", ptr);
 	printf("Original: %p\n\n", ptr);
 
