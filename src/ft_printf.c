@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 21:10:21 by danalvar          #+#    #+#             */
-/*   Updated: 2025/02/12 13:59:07 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/02/12 14:11:51 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,8 @@ int	ft_printf(char const *s, ...)
 	va_list	vargs;
 	int		count;
 	va_list vcpy;
-	int	i;
 
 	va_start(vargs, s);
-	i = 0;
 	count = 0;
 	while (*s)
 	{
@@ -78,5 +76,5 @@ int	ft_printf(char const *s, ...)
 		s++;
 	}
 	va_end(vargs);
-	return (0);
+	return (count);
 }

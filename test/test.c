@@ -126,6 +126,13 @@ int	main()
 
 
 	ft_printf("MultipleFT: '%i' '%s' '%s' \n", 233, "String1", "String2");
-	ft_printf("MultipleOrig: '233' 'String1' 'String2'");
+	ft_printf("MultipleOrig: '233' 'String1' 'String2'\n");
+	
+	int a = printf("%p\n", ptr);
+	int b = printf("%p\n", ptr);
+	if (a == b)
+		ft_printf("Mismo output\n");
+	else
+		ft_printf("Error de return Val %i - %i\n", a, b);
 	return (0);
 }
