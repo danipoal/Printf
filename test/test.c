@@ -69,8 +69,6 @@ int	main()
 	int	entero = 84;
 	int	hex = 5498;
 
-
-
 	// CHARACTER
 	printf_unit_test("Character:", "'%c'", "a", sizeof(char));
 	ft_printf("Character ft:'%c' ", 'a');
@@ -115,6 +113,19 @@ int	main()
 	ft_printf("Porcentaje ft: '%%' ");
 	printf("Original: '%%'\n");
 
-	ft_printf("MultipleFT: '%i' '%s' '%s' ", 233, "String1", "String2");
+	//NULL POINTER
+	printf_unit_test("Pointer:", "'%p'", NULL, 99);
+	ft_printf("Puntero ft: %p ", NULL);
+	printf("Original: %p\n\n", NULL);
+
+	//NULL STRING
+	printf_unit_test("String:", "'%s'", (char *)NULL, sizeof(char *));
+	ft_printf("String ft:'%s' ", (char *)NULL);
+	printf("Original: '%s'\n\n",(char *) NULL);
+
+
+
+	ft_printf("MultipleFT: '%i' '%s' '%s' \n", 233, "String1", "String2");
+	ft_printf("MultipleOrig: '233' 'String1' 'String2'");
 	return (0);
 }

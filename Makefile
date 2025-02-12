@@ -2,9 +2,8 @@ NAME = libftprintf.a
 
 CC = cc 
 CFLAGS = -Wall -Werror -Wextra
-SRCS = ft_printf.c ft_putnbr_base.c
+SRCS = ft_printf.c ft_putnbr_base.c ft_utils.c
 FOLDER = src/
-LIBFOLDER = libft/
 
 OBJS = $(addprefix $(FOLDER), $(SRCS:.c=.o))
 
