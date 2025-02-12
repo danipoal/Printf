@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 17:31:20 by danalvar          #+#    #+#             */
-/*   Updated: 2025/02/12 13:43:34 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/02/12 13:59:42 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	ft_putnbr_base(long nb, char *base, int *count)
 	base_len = ft_strlen(base);
 	if (nb < 0)
 	{
-		//write(1, "-", 1);
 		ft_putchar_fd('-', 1, count);
 		nb = -nb;
 	}
@@ -28,12 +27,10 @@ void	ft_putnbr_base(long nb, char *base, int *count)
 	{
 		ft_putnbr_base(nb / base_len, base, count);
 		index = nb % base_len;
-		//write(1, &base[index], 1);
 		ft_putchar_fd(base[index], 1, count);
 	}
 	if (nb < base_len)
 		ft_putchar_fd(base[nb], 1, count);
-//		write(1, &base[nb], 1);
 }
 
 void	ft_putptr(long nb, char *base, int *count)
@@ -50,7 +47,7 @@ void	ft_putdec_base(double nb, char *base)
 	long	int_nbr;
 
 	int_nbr = (long) nb;
-	ft_putnbr_base(int_nbr, base, 0);	//err
+	ft_putnbr_base(int_nbr, base, 0);
 	nb = nb - int_nbr;
 	base_len = ft_strlen(base);
 	if (nb != 0)
