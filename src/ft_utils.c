@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 12:33:21 by danalvar          #+#    #+#             */
-/*   Updated: 2025/02/12 12:42:28 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/02/12 13:24:32 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ size_t	ft_strlen(const char *s)
 	return (size);
 }
 
-void	ft_putchar_fd(char c, int fd)
+void	ft_putchar_fd(char c, int fd, int *count)
 {
-	write(fd, &c, 1);
+	*count += write(fd, &c, 1);
 }
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(char *s, int fd, int *count)
 {
-	write(fd, s, ft_strlen(s));
+	*count += write(fd, s, ft_strlen(s));
 }
 
 char	*ft_strchr(const char *s, int c)

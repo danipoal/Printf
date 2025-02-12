@@ -6,13 +6,13 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 17:31:20 by danalvar          #+#    #+#             */
-/*   Updated: 2025/02/04 21:04:02 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/02/12 13:43:34 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void	ft_putnbr_base(long nb, char *base)
+void	ft_putnbr_base(long nb, char *base, int *count)
 {
 	int	base_len;
 	int	index;
@@ -20,23 +20,26 @@ void	ft_putnbr_base(long nb, char *base)
 	base_len = ft_strlen(base);
 	if (nb < 0)
 	{
-		write(1, "-", 1);
+		//write(1, "-", 1);
+		ft_putchar_fd('-', 1, count);
 		nb = -nb;
 	}
 	if (nb >= base_len)
 	{
-		ft_putnbr_base(nb / base_len, base);
+		ft_putnbr_base(nb / base_len, base, count);
 		index = nb % base_len;
-		write(1, &base[index], 1);
+		//write(1, &base[index], 1);
+		ft_putchar_fd(base[index], 1, count);
 	}
 	if (nb < base_len)
-		write(1, &base[nb], 1);
+		ft_putchar_fd(base[nb], 1, count);
+//		write(1, &base[nb], 1);
 }
 
-void	ft_putptr(long nb, char *base)
+void	ft_putptr(long nb, char *base, int *count)
 {
-	write(1, "0x", 2);
-	ft_putnbr_base(nb, base);
+	*count += write(1, "0x", 2);
+	ft_putnbr_base(nb, base, count);
 }
 
 void	ft_putdec_base(double nb, char *base)
@@ -47,7 +50,7 @@ void	ft_putdec_base(double nb, char *base)
 	long	int_nbr;
 
 	int_nbr = (long) nb;
-	ft_putnbr_base(int_nbr, base);
+	ft_putnbr_base(int_nbr, base, 0);	//err
 	nb = nb - int_nbr;
 	base_len = ft_strlen(base);
 	if (nb != 0)

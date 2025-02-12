@@ -70,9 +70,9 @@ int	main()
 	int	hex = 5498;
 
 	// CHARACTER
-	printf_unit_test("Character:", "'%c'", "a", sizeof(char));
-	ft_printf("Character ft:'%c' ", 'a');
-	printf("Original: '%c'\n\n", 'a');
+	printf_unit_test("Character:", "'%c'", "0", sizeof(char));
+	ft_printf("Character ft:'%c' ", '0');
+	printf("Original: '%c'\n\n", '0');
 
 	// STRING
 	printf_unit_test("String:", "'%s'", ptr, sizeof(char *));
