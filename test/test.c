@@ -7,11 +7,12 @@
 
 void	current_test()
 {
-	int	a = printf("Or %c-%c-%c \n", 0 ,'1', '2');
-	int	b = ft_printf("Ft %c-%c-%c \n", 0, '1', '2');
-
+	int	a = printf("Or %c-%c-%c \n",'0', 0, '1');
+	int	b = ft_printf("Ft %c-%c-%c \n", '0', 0, '1');
 	
 	ft_printf("Resultados Or: '%i', Ft: '%i'", a, b);
+	printf("NULOS or-> d:'%d' i:'%i' u:'%u' x:'%x'\n", 0, 0, 0, 0);
+	ft_printf("NULOS ft-> d:'%d' i:'%i' u:'%u' x:'%x'\n", 0, 0, 0, 0);
 }
 
 
@@ -47,8 +48,8 @@ int	main()
 	ft_printf("MultipleOrig: '233' 'String1' 'String2'\n");
 	
 	// LIMITS
-	ft_printf(" %X %X %X %X %lX %X %X\n", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
-	printf(" %X %X %lX %lX %lX %X %X\n", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
+	ft_printf("FT: %X %X %X %X %X %X %X\n", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
+	printf("Or: %X %X %lX %lX %lX %X %X\n", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
 
 	current_test();
 	return (0);
