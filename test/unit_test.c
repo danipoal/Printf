@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 13:25:31 by danalvar          #+#    #+#             */
-/*   Updated: 2025/02/13 14:13:59 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/02/13 15:41:41 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,73 +29,63 @@ void	check_return_bytes(a, b)
  * El *s siempre vendra en formato '%x' osea el int que retorna es 2 + %x
  *
  */
-void	printf_unit_test(char *title, char *s, void *arg, size_t size)
+void	printf_unit_test(char *title, char *s, void *arg)
 {
 	int	a = 1;
 	int	b = 2;
 
 	ft_printf(title);
-	if (size == sizeof(char))
+	if (!strcmp(s, "'%c'"))
 	{
 		char *cp = (char *) arg;
-		printf(" Original");
-		a = printf("'%c'", cp[0]);
-		ft_printf(" Ft:");
+		a = printf(s, cp[0]);
 		b = ft_printf(s, cp[0]);
 	}
-	else if(size == sizeof(char *))
+	else if(!strcmp(s, "'%s'"))
 	{
 		char * cp = (char *) arg;
-		printf(" Original");
-		a = printf("'%s'", cp);
-		ft_printf(" Ft:");
+		a = printf(s, cp);
 		b = ft_printf(s, cp);
 	}
-	else if(size == 99)   // Por alguna razon no entraba en sizeof(void *)
+	else if(!strcmp(s, "'%p'"))
 	{
-		printf("P Original");
-		a = printf("'%p'",(void *) arg);
-		ft_printf(" Ft:");
+		a = printf(s,(void *) arg);
 		b = ft_printf(s, arg);
 	}
-	else if(size == sizeof(double))
+	else if(!strcmp(s, "'%u'"))
+	{
+		unsigned int	*cp = (unsigned int *) arg;
+		a = printf(s, cp);
+		b = ft_printf(s, cp);
+	}
+	else if(!strcmp(s, "'%f'"))
 	{
 		double *cp = (double *) arg;
-		printf(" Original");
-		a = printf("'%f'", *cp);
-		ft_printf(" Ft:");
+		a = printf(s, *cp);
 		b = ft_printf(s, *cp);
 	}
-	else if(size == sizeof(int))
+	else if(!strcmp(s, "'%i'") || !strcmp(s, "'%d'"))
 	{
 		int	*cp = (int *) arg;
-		printf(" Original");
-		a = printf("'%i'", *cp);
-		ft_printf(" Ft:");
+		a = printf(s, *cp);
 		b = ft_printf(s, *cp);
 	}
-	else if(size == 16)
+	else if(!strcmp(s, "'%x'"))
 	{
 		int	*cp = (int *) arg;
-		printf(" Original");
-		a = printf("'%x'", *cp);
-		ft_printf(" Ft:");
+		a = printf(s, *cp);
 		b = ft_printf(s, *cp);
 	}
-	else if(size == 17)
+	else if(!strcmp(s, "'%X'"))
 	{
 		int	*cp = (int *) arg;
-		printf(" Original");
-		a = printf("'%X'", *cp);
-		ft_printf(" Ft:");
+		a = printf(s, *cp);
 		b = ft_printf(s, *cp);
 	}
-	else if (!arg)
+	else if(!strcmp(s, "'%%'"))
 	{
-		printf(" Original");
-		a = printf("'%%'");
-		ft_printf(" Ft:");
-		b = ft_printf(s);
+		a = printf(s, arg);
+		b = ft_printf(s, arg);
 	}
 	check_return_bytes(a, b);
 }

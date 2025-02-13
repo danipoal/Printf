@@ -6,20 +6,25 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 21:10:21 by danalvar          #+#    #+#             */
-/*   Updated: 2025/02/13 14:11:30 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/02/13 15:34:27 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
-
-static void	ft_print_null(char const **s, int *count)
+/**
+ * We print a NULL parameter depending in the conversion
+ * Note that we also pop the null value from the original va_list
+ */
+static void	ft_print_null(char const **s, va_list vargs, int *count)
 {
+	va_arg(vargs, void *);
 	(*s)++;
 	if (ft_strchr("s", **s))
 		ft_putstr_fd("(null)", 1, count);
 	else if (ft_strchr("p", **s))
 		ft_putstr_fd("(nil)", 1, count);
-	(*count)++;
+	else
+		(*count)++;
 }
 
 void	ft_conversion(char const **s, va_list vargs, int *count)
@@ -36,9 +41,9 @@ void	ft_conversion(char const **s, va_list vargs, int *count)
 	else if (ft_strchr("u", **s)) // Decimal Base 10 unsigned
 		ft_putnbr_ubase(va_arg(vargs, unsigned), DECIMAL, count);
 	else if (ft_strchr("x", **s)) // Hex min
-		ft_putnbr_base((long) va_arg(vargs, void *), HEX_MIN, count);
+		ft_putnbr_ubase((long) va_arg(vargs, void *), HEX_MIN, count);
 	else if (ft_strchr("X", **s)) // Hex min
-		ft_putnbr_base(va_arg(vargs, int), HEX_MAY, count);
+		ft_putnbr_ubase(va_arg(vargs, int), HEX_MAY, count);
 	else if (ft_strchr("%", **s))
 		ft_putchar_fd('%', 1, count);
 }
@@ -65,7 +70,7 @@ int	ft_printf(char const *s, ...)
 		{
 			va_copy(vcpy, vargs);
 			if (va_arg(vcpy, void *) == NULL)
-				ft_print_null(&s, &count);
+				ft_print_null(&s, vargs, &count);
 			else
 				ft_conversion(&s, vargs, &count);
 		}
