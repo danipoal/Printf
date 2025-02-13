@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 17:31:20 by danalvar          #+#    #+#             */
-/*   Updated: 2025/02/13 13:13:01 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/02/13 14:11:59 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,26 @@ void	ft_putnbr_base(long nb, char *base, int *count)
 		ft_putchar_fd(base[nb], 1, count);
 }
 
-void	ft_putptr(long nb, char *base, int *count)
+void	ft_putnbr_ubase(unsigned long nb, char *base, int *count)
+{
+	unsigned int	base_len;
+	unsigned int	index;
+
+	base_len = ft_strlen(base);
+	if (nb >= base_len)
+	{
+		ft_putnbr_ubase(nb / base_len, base, count);
+		index = nb % base_len;
+		ft_putchar_fd(base[index], 1, count);
+	}
+	if (nb < base_len)
+		ft_putchar_fd(base[nb], 1, count);
+}
+
+void	ft_putptr(unsigned long nb, char *base, int *count)
 {
 	*count += write(1, "0x", 2);
-	ft_putnbr_base(nb, base, count);
+	ft_putnbr_ubase(nb, base, count);
 }
 
 

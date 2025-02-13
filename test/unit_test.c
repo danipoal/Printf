@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 13:25:31 by danalvar          #+#    #+#             */
-/*   Updated: 2025/02/13 13:56:19 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/02/13 14:13:59 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	check_return_bytes(a, b)
 		printf(RED "Error\n" RESET);
 	else
 		printf(GREEN "OK\n" RESET);
+	ft_printf(RESET);
 }
 
 
@@ -97,5 +98,4 @@ void	printf_unit_test(char *title, char *s, void *arg, size_t size)
 		b = ft_printf(s);
 	}
 	check_return_bytes(a, b);
-	printf("\n");
 }
