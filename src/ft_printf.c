@@ -23,7 +23,7 @@ static void	ft_print_null(char const **s, va_list vargs, int *count)
 		ft_putstr_fd("(null)", 1, count);
 	else if (ft_strchr("p", **s))
 		ft_putstr_fd("(nil)", 1, count);
-	else if (ft_strchr("diuxX", **s))
+	else if (ft_strchr("cdiuxX", **s))
 		ft_putchar_fd('0', 1, count);
 	else
 		(*count)++;
@@ -32,21 +32,21 @@ static void	ft_print_null(char const **s, va_list vargs, int *count)
 void	ft_conversion(char const **s, va_list vargs, int *count)
 {
 	(*s)++;
-	if ((ft_strchr("c", **s))) //CHAR
+	if ((ft_strchr("c", **s))
 		ft_putchar_fd(va_arg(vargs, int), 1, count);
-	else if (ft_strchr("s", **s)) // STRING
+	else if (ft_strchr("s", **s))
 		ft_putstr_fd(va_arg(vargs, char *), 1, count);
-	else if (ft_strchr("p", **s)) // VOID * Puntero
+	else if (ft_strchr("p", **s))
 		ft_putptr((unsigned long)va_arg(vargs, void *), HEX_MIN, count);
 	else if (ft_strchr("d", **s) || ft_strchr("i", **s)) 
 		ft_putnbr_base(va_arg(vargs, int), DECIMAL, count);
-	else if (ft_strchr("u", **s)) // Decimal Base 10 unsigned
-		ft_putnbr_ubase(va_arg(vargs, unsigned long), DECIMAL, count);
-	else if (ft_strchr("x", **s)) // Hex min
-		ft_putnbr_ubase(va_arg(vargs, long), HEX_MIN, count);
-	else if (ft_strchr("X", **s)) // Hex min
-		ft_putnbr_ubase(va_arg(vargs, long), HEX_MAY, count);
-	else if (ft_strchr("%", **s))
+	else if (ft_strchr("u", **s))
+		ft_putnbr_ubase(va_arg(vargs, unsigned), DECIMAL, count);
+	else if (ft_strchr("x", **s))
+		ft_putnbr_ubase(va_arg(vargs, unsigned int), HEX_MIN, count);
+	else if (ft_strchr("X", **s))
+		ft_putnbr_base(va_arg(vargs, unsigned int), HEX_MAY, count);
+	else
 		ft_putchar_fd('%', 1, count);
 }
 
@@ -64,6 +64,8 @@ int	ft_printf(char const *s, ...)
 	int		count;
 	va_list vcpy;
 
+	if (!s)
+		return (-1);
 	va_start(vargs, s);
 	count = 0;
 	while (*s)

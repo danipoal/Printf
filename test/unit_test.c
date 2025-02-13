@@ -12,10 +12,7 @@
 
 #include "test.h"
 
-
-
-
-void	check_return_bytes(a, b)
+void	check_return_bytes(int a, int b)
 {
 	if (a != b)
 		printf(RED "Error\n" RESET);
@@ -23,7 +20,6 @@ void	check_return_bytes(a, b)
 		printf(GREEN "OK\n" RESET);
 	ft_printf(RESET);
 }
-
 
 /**
  * El *s siempre vendra en formato '%x' osea el int que retorna es 2 + %x
