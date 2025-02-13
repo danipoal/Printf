@@ -7,6 +7,7 @@
 
 # define HEX_MAY "0123456789ABCDEF"
 # define HEX_MIN "0123456789abcdef"
+# define DECIMAL "0123456789"
 
 int	ft_printf(char const *s, ...);
 void	ft_putnbr_base(long nb, char *base, int *count);

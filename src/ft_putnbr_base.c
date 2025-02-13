@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 17:31:20 by danalvar          #+#    #+#             */
-/*   Updated: 2025/02/12 13:59:42 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/02/13 13:13:01 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,9 @@ void	ft_putptr(long nb, char *base, int *count)
 	ft_putnbr_base(nb, base, count);
 }
 
-void	ft_putdec_base(double nb, char *base)
+
+
+/*void	ft_putdec_base(double nb, char *base)
 {
 	int		base_len;
 	int		index;
@@ -62,4 +64,4 @@ void	ft_putdec_base(double nb, char *base)
 			nb -= index;
 		}
 	}
-}
+}*/

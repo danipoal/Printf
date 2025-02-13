@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 21:10:21 by danalvar          #+#    #+#             */
-/*   Updated: 2025/02/12 14:11:51 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/02/13 13:17:28 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,10 @@ void	ft_conversion(char const **s, va_list vargs, int *count)
 		ft_putstr_fd(va_arg(vargs, char *), 1, count);
 	else if (ft_strchr("p", **s)) // VOID * Puntero
 		ft_putptr((long)va_arg(vargs, void *), HEX_MIN, count);
-	else if (ft_strchr("d", **s)) // INT b10 ERROR
-		ft_putdec_base((double)va_arg(vargs, double), "0123456789");
-	else if (ft_strchr("i", **s)) // INT b10
-		ft_putnbr_base(va_arg(vargs, int), "0123456789", count);
+	else if (ft_strchr("d", **s) || ft_strchr("i", **s)) 
+		ft_putnbr_base(va_arg(vargs, int), DECIMAL, count);
 	else if (ft_strchr("u", **s)) // Decimal Base 10 unsigned
-		ft_putdec_base(va_arg(vargs, unsigned int), "0123456789");
+		ft_putnbr_base(va_arg(vargs, unsigned int), DECIMAL, count);
 	else if (ft_strchr("x", **s)) // Hex min
 		ft_putnbr_base((long) va_arg(vargs, void *), HEX_MIN, count);
 	else if (ft_strchr("X", **s)) // Hex min
