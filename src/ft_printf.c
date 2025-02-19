@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 21:10:21 by danalvar          #+#    #+#             */
-/*   Updated: 2025/02/13 16:08:58 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/02/19 18:29:30 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ static void	ft_print_null(char const **s, va_list vargs, int *count)
 {
 	va_arg(vargs, void *);
 	(*s)++;
-	if (ft_strchr("s", **s))
+	if ('s' == **s)
 		ft_putstr_fd("(null)", 1, count);
-	else if (ft_strchr("p", **s))
+	else if ('p' == **s)
 		ft_putstr_fd("(nil)", 1, count);
 	else if (ft_strchr("cdiuxX", **s))
 		ft_putchar_fd('0', 1, count);
@@ -32,19 +32,19 @@ static void	ft_print_null(char const **s, va_list vargs, int *count)
 void	ft_conversion(char const **s, va_list vargs, int *count)
 {
 	(*s)++;
-	if ((ft_strchr("c", **s))
+	if ('c' == **s)
 		ft_putchar_fd(va_arg(vargs, int), 1, count);
-	else if (ft_strchr("s", **s))
+	else if ('s' ==  **s)
 		ft_putstr_fd(va_arg(vargs, char *), 1, count);
-	else if (ft_strchr("p", **s))
+	else if ('p' == **s)
 		ft_putptr((unsigned long)va_arg(vargs, void *), HEX_MIN, count);
-	else if (ft_strchr("d", **s) || ft_strchr("i", **s)) 
+	else if ('d' == **s || 'i' == **s) 
 		ft_putnbr_base(va_arg(vargs, int), DECIMAL, count);
-	else if (ft_strchr("u", **s))
+	else if ('u' == **s)
 		ft_putnbr_ubase(va_arg(vargs, unsigned), DECIMAL, count);
-	else if (ft_strchr("x", **s))
+	else if ('x' == **s)
 		ft_putnbr_ubase(va_arg(vargs, unsigned int), HEX_MIN, count);
-	else if (ft_strchr("X", **s))
+	else if ('X' == **s)
 		ft_putnbr_base(va_arg(vargs, unsigned int), HEX_MAY, count);
 	else
 		ft_putchar_fd('%', 1, count);

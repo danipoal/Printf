@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 13:25:31 by danalvar          #+#    #+#             */
-/*   Updated: 2025/02/13 15:41:41 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/02/19 18:21:42 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,11 @@ void	printf_unit_test(char *title, char *s, void *arg)
 		b = ft_printf(s, *cp);
 	}
 	else if(!strcmp(s, "'%%'"))
+	{
+		a = printf(s, arg);
+		b = ft_printf(s, arg);
+	}
+	else if(strchr(s,'%'))	// Si solo hay un % sin nada mas despues(Manejo err)
 	{
 		a = printf(s, arg);
 		b = ft_printf(s, arg);
