@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 17:31:20 by danalvar          #+#    #+#             */
-/*   Updated: 2025/02/13 14:11:59 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/02/19 18:31:05 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,6 @@ void	ft_putptr(unsigned long nb, char *base, int *count)
 	*count += write(1, "0x", 2);
 	ft_putnbr_ubase(nb, base, count);
 }
-
-
 
 /*void	ft_putdec_base(double nb, char *base)
 {
