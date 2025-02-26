@@ -18,8 +18,7 @@ void	current_test()
 	f = ft_printf("ft %c-%c-%c \n",0, '1', '2');
 	
 	if (a != b || c != d || e != f)
-		ft_printf(RED "Err" RESET);
-
+		ft_printf(RED "Err diff count original:%d ft:%d\n" RESET, a, b);
 	printf("NULOS or-> d:'%d' i:'%i' u:'%u' x:'%x'\n", 0, 0, 0, 0);
 	ft_printf("NULOS ft-> d:'%d' i:'%i' u:'%u' x:'%x'\n", 0, 0, 0, 0);
 
@@ -67,5 +66,6 @@ int	main()
 	printf("Or: %X %X %lX %lX %lX %X %X\n", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
 
 	current_test();
+	ft_printf("Last %");
 	return (0);
 }

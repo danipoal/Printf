@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 12:33:21 by danalvar          #+#    #+#             */
-/*   Updated: 2025/02/12 13:24:32 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/02/26 21:36:28 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,18 @@ size_t	ft_strlen(const char *s)
 
 void	ft_putchar_fd(char c, int fd, int *count)
 {
-	*count += write(fd, &c, 1);
+	if (c)
+		*count += write(fd, &c, 1);
+	else
+		(*count)++;
 }
 
 void	ft_putstr_fd(char *s, int fd, int *count)
 {
-	*count += write(fd, s, ft_strlen(s));
+	if (s)
+		*count += write(fd, s, ft_strlen(s));
+	else
+		*count += write(fd, "(null)", 6);
 }
 
 char	*ft_strchr(const char *s, int c)

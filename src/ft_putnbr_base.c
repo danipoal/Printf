@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 17:31:20 by danalvar          #+#    #+#             */
-/*   Updated: 2025/02/19 18:31:05 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/02/26 21:24:28 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,13 @@ void	ft_putnbr_ubase(unsigned long nb, char *base, int *count)
 
 void	ft_putptr(unsigned long nb, char *base, int *count)
 {
-	*count += write(1, "0x", 2);
-	ft_putnbr_ubase(nb, base, count);
+	if (nb > 0)
+	{
+		*count += write(1, "0x", 2);
+		ft_putnbr_ubase(nb, base, count);
+	}
+	else
+		*count += write(1, "(nil)", 5);
 }
 
 /*void	ft_putdec_base(double nb, char *base)

@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 21:10:21 by danalvar          #+#    #+#             */
-/*   Updated: 2025/02/19 19:55:22 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/02/26 21:27:50 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
  * We print a NULL parameter depending in the conversion
  * Note that we also pop the null value from the original va_list
  */
-static void	ft_print_null(char const **s, va_list vargs, int *count)
+/*static void	ft_print_null(char const **s, va_list vargs, int *count)
 {
 	va_arg(vargs, void *);
 	(*s)++;
@@ -27,7 +27,7 @@ static void	ft_print_null(char const **s, va_list vargs, int *count)
 		ft_putchar_fd('0', 1, count);
 	else
 		(*count)++;
-}
+}*/
 
 void	ft_conversion(char const **s, va_list vargs, int *count)
 {
@@ -61,7 +61,6 @@ void	ft_conversion(char const **s, va_list vargs, int *count)
 int	ft_printf(char const *s, ...)
 {
 	va_list	vargs;
-	va_list	vcpy;
 	int		count;
 
 	if (!s)
@@ -71,14 +70,7 @@ int	ft_printf(char const *s, ...)
 	while (*s)
 	{
 		if ('%' == *s)
-		{
-			va_copy(vcpy, vargs);
-			if (va_arg(vcpy, void *) == NULL)
-				ft_print_null(&s, vargs, &count);
-			else
-				ft_conversion(&s, vargs, &count);
-			va_end(vcpy);
-		}
+			ft_conversion(&s, vargs, &count);
 		else
 			ft_putchar_fd(*s, 1, &count);
 		s++;

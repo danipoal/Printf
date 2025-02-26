@@ -2,7 +2,7 @@ NAME = test
 
 CC = cc
 
-FLAGS = -Wall -Wextra -Werror -I./../ -g
+FLAGS = -Wall -Wextra -Werror -I./../ -g -O0
 
 SRC = test.c unit_test.c
 
@@ -14,7 +14,7 @@ all: $(NAME)
 		$(CC) $(FLAGS) -g -c $< -o $@
 
 $(NAME): $(OBJ)
-	$(CC) -o $(NAME) $(OBJ) -L./../ -l:libftprintf.a 
+	$(CC) -g -o $(NAME) $(OBJ) -L./../ -l:libftprintf.a 
 
 clean:
 		rm -f $(OBJ)
