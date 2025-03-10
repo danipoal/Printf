@@ -6,11 +6,11 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 21:10:21 by danalvar          #+#    #+#             */
-/*   Updated: 2025/02/26 21:27:50 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/03/10 16:05:54 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
 void	ft_conversion(char const **s, va_list vargs, int *count)
 {

@@ -6,11 +6,11 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 17:31:20 by danalvar          #+#    #+#             */
-/*   Updated: 2025/02/26 21:24:28 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/03/10 16:06:17 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
 void	ft_putnbr_base(long nb, char *base, int *count)
 {

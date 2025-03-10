@@ -6,11 +6,11 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 12:33:21 by danalvar          #+#    #+#             */
-/*   Updated: 2025/02/26 21:36:28 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/03/10 16:09:51 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
 size_t	ft_strlen(const char *s)
 {
@@ -26,8 +26,8 @@ size_t	ft_strlen(const char *s)
 
 void	ft_putchar_fd(char c, int fd, int *count)
 {
-		(*count)++;
-		write(fd, &c, 1);
+	(*count)++;
+	write(fd, &c, 1);
 }
 
 void	ft_putstr_fd(char *s, int fd, int *count)

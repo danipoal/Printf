@@ -3,11 +3,12 @@ NAME = libftprintf.a
 CC = cc 
 CFLAGS = -Wall -Werror -Wextra -g -O0
 SRCS = ft_printf.c ft_putnbr_base.c ft_utils.c
-FOLDER = src/
+HEAD = ft_printf.h
+FOLDER = 
 
 OBJS = $(addprefix $(FOLDER), $(SRCS:.c=.o))
 
-# Regla general de compilacion de nueva libreria (No se coloca la lib que se usa como Libft.a, eso solo va en los includes)
+# Regla general
 all: $(NAME)
 
 $(NAME): $(OBJS)
