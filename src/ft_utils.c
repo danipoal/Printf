@@ -26,10 +26,8 @@ size_t	ft_strlen(const char *s)
 
 void	ft_putchar_fd(char c, int fd, int *count)
 {
-	if (c)
-		*count += write(fd, &c, 1);
-	else
 		(*count)++;
+		write(fd, &c, 1);
 }
 
 void	ft_putstr_fd(char *s, int fd, int *count)

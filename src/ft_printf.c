@@ -11,23 +11,6 @@
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
-/**
- * We print a NULL parameter depending in the conversion
- * Note that we also pop the null value from the original va_list
- */
-/*static void	ft_print_null(char const **s, va_list vargs, int *count)
-{
-	va_arg(vargs, void *);
-	(*s)++;
-	if ('s' == **s)
-		ft_putstr_fd("(null)", 1, count);
-	else if ('p' == **s)
-		ft_putstr_fd("(nil)", 1, count);
-	else if (ft_strchr("diuxX", **s))
-		ft_putchar_fd('0', 1, count);
-	else
-		(*count)++;
-}*/
 
 void	ft_conversion(char const **s, va_list vargs, int *count)
 {
@@ -46,7 +29,7 @@ void	ft_conversion(char const **s, va_list vargs, int *count)
 		ft_putnbr_ubase(va_arg(vargs, unsigned int), HEX_MIN, count);
 	else if ('X' == **s)
 		ft_putnbr_base(va_arg(vargs, unsigned int), HEX_MAY, count);
-	else
+	else if ('%' == **s)
 		ft_putchar_fd('%', 1, count);
 }
 
